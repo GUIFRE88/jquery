@@ -1,8 +1,8 @@
 ---
-<h4 align="center">
+<h2 align="center">
   🚀 Curso de jQuery no site Alura
  
-</h4>
+</h2>
 <br>
  
 Esse projeto foi desenvolvido com as seguintes tecnologias:
