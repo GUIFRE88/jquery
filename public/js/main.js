@@ -17,3 +17,16 @@ campo.on("input", function(){
     var qtdCaracteres = conteudo.length; // Busca a quantidade de letras. 
     $("#contador-caracteres").text(qtdCaracteres); // Joga o valor para o HTML.
 }) 
+
+var tempoRestante = $("#tempo-digitacao").text();
+campo.one("focus",function(){ // Quando estiver sobre o campo, mas apenas pega o primeiro click.
+    var cronometroID = setInterval(function(){
+        tempoRestante--; // Retira 1 da variavel de tempo.
+        $("#tempo-digitacao").text(tempoRestante); // Joga o valor para o campo.
+        if (tempoRestante < 1){
+            campo.attr("disabled",true); // Fecha campo quando tempo zerar, alterando atributo do campo.
+            clearInterval(cronometroID); // Finaliza a função setInterval
+        }
+    },1000);
+
+})
