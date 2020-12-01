@@ -6,6 +6,7 @@ $(function(){
     atualizaTamanhoFrase();
     inicializaContadores();
     inicalizaCronometro();
+    inicializaMarcadores();
 
     // Quando clicar no botão.
     $("#botao-reiniciar").click(reiniciaJogo);
@@ -33,6 +34,22 @@ function inicializaContadores(){
     }) 
 }
 
+function inicializaMarcadores(){
+    campo.on("input",function(){
+        var frase = $(".frase").text(); // Busca o valor total do texto.
+        var digitado = campo.val(); // Busca o valor digitado.
+        var comparavel = frase.substr(0,digitado.length) // Busca a frase, de acordo com o tamanho digitado.
+        if(digitado == comparavel){
+            campo.addClass("borda-verde");
+            campo.removeClass("borda-vermelha");
+        }else{
+            campo.addClass("borda-vermelha");
+            campo.removeClass("borda-verde");
+        }
+    })
+}
+
+
 function inicalizaCronometro(){
     var tempoRestante = $("#tempo-digitacao").text();
     campo.one("focus",function(){ // Quando estiver sobre o campo, mas apenas pega o primeiro click.
@@ -42,6 +59,7 @@ function inicalizaCronometro(){
             if (tempoRestante < 1){
                 campo.attr("disabled",true); // Fecha campo quando tempo zerar, alterando atributo do campo.
                 clearInterval(cronometroID); // Finaliza a função setInterval
+                campo.toggleClass("campo-desativado"); // Adiciona uma classe CSS ao campo, alterando assim o CSS do campo, caso a classe ja não exista. 
             }
         },1000);
     })
@@ -50,6 +68,9 @@ function inicalizaCronometro(){
 function reiniciaJogo(){
     campo.attr("disabled",false); // Habila o campo.
     campo.val("") // Limpa o campo de texto.
+    campo.toggleClass("campo-desativado"); // Remove a classe CSS que foi adicionada anteriormente, caso ela exista, se nao tiver a classe adiciona ela. 
+    campo.removeClass("borda-verde");
+    campo.removeClass("borda-vermelha");
     $("#contador-palavras").text("0") // Zera o contador.
     $("#contador-caracteres").text("0") // Zera o contador.
     $("#tempo-digitacao").text(tempoInicial) // Volta o tempo inical.

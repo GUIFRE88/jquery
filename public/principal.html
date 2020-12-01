@@ -3,30 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="css/libs/google-fonts.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Aluta Typer</h1>
-    <p class="frase">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 
-        1500s, when an unknown printer took a galley of type and scrambled it 
-        to make a type specimen book. It has survived not only five centuries, 
-        but also the leap into electronic typesetting, remaining essentially 
-        unchanged. It was popularised in the 1960s with the release of Letraset 
-        sheets containing Lorem Ipsum passages, and more recently with desktop 
-        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    <ul class="informacoes">
-        <li><span id="tamanho-frase">30</span> Palavras</li>
-        <li><span id="tempo-digitacao">10</span> Segundos</li>
-    </ul>
+    <div class="container">
 
-    <textarea class="campo-digitacao" rows="8" cols="40"></textarea>
+        <h1 class="center">Aluta Typer</h1>
+        <p class="frase center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry's standard dummy text ever since the 
+            1500s, when an unknown printer took a galley of type and scrambled it 
+            to make a type specimen book. It has survived not only five centuries, 
+            but also the leap into electronic typesetting, remaining essentially 
+            unchanged. It was popularised in the 1960s with the release of Letraset 
+            sheets containing Lorem Ipsum passages, and more recently with desktop 
+            publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <ul class="informacoes center">
+            <li>
+                <i class="small material-icons icones">description</i>
+                <span id="tamanho-frase">30</span> Palavras
+            </li>
+            <li>
+                <i class="small material-icons icones">query_builder</i>
+                <span id="tempo-digitacao">10</span> Segundos
+            </li>
+        </ul>
 
-    <ul>
-        <li> <span id="contador-caracteres">0</span> Caracteres</li>
-        <li> <span id="contador-palavras">0</span>  Palavras</li>
-    </ul>
+        <textarea class="campo-digitacao" rows="8" cols="40"></textarea>
 
-    <button id="botao-reiniciar">Reiniciar Jogo</button>
+        <ul class="center">
+            <li> <span id="contador-caracteres">0</span> Caracteres</li>
+            <li> <span id="contador-palavras">0</span>  Palavras</li>
+        </ul>
+
+        <div class="botao">
+            <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">restore</i></a>
+        </div>
+
+    </div>
 
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
