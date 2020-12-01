@@ -57,14 +57,17 @@ function inicalizaCronometro(){
             tempoRestante--; // Retira 1 da variavel de tempo.
             $("#tempo-digitacao").text(tempoRestante); // Joga o valor para o campo.
             if (tempoRestante < 1){
-                campo.attr("disabled",true); // Fecha campo quando tempo zerar, alterando atributo do campo.
                 clearInterval(cronometroID); // Finaliza a função setInterval
-                campo.toggleClass("campo-desativado"); // Adiciona uma classe CSS ao campo, alterando assim o CSS do campo, caso a classe ja não exista. 
+                finalizaJogo()
             }
         },1000);
     })
 }
-
+function finalizaJogo(){
+    campo.attr("disabled",true); // Fecha campo quando tempo zerar, alterando atributo do campo.           
+    campo.toggleClass("campo-desativado"); // Adiciona uma classe CSS ao campo, alterando assim o CSS do campo, caso a classe ja não exista. 
+    inserePlacar() // Chama função para adicionar user ao placar.
+}
 function reiniciaJogo(){
     campo.attr("disabled",false); // Habila o campo.
     campo.val("") // Limpa o campo de texto.
@@ -75,4 +78,17 @@ function reiniciaJogo(){
     $("#contador-caracteres").text("0") // Zera o contador.
     $("#tempo-digitacao").text(tempoInicial) // Volta o tempo inical.
     inicalizaCronometro(); // Inializa os cronometro.
+}
+
+function inserePlacar(){
+    var corpoTabela = $(".placar").find("tbody"); // Busca dentro da section
+    var usuario = "Guilherme";
+    var numPalavras = $("#contador-palavras").text(); // Busca o numero de palavras
+    var linha = "<tr>" +
+                    "<td>" + usuario + "</td>" + 
+                    "<td>" + numPalavras + "</td>" + 
+                "</tr>";
+
+    corpoTabela.append(linha); // Adiciona a linha no HTML
+
 }
