@@ -84,11 +84,18 @@ function inserePlacar(){
     var corpoTabela = $(".placar").find("tbody"); // Busca dentro da section
     var usuario = "Guilherme";
     var numPalavras = $("#contador-palavras").text(); // Busca o numero de palavras
+    var botaoRemover = "<a href='#' class='botao-remover'><i class='small material-icons'>delete</i></a>"
     var linha = "<tr>" +
                     "<td>" + usuario + "</td>" + 
                     "<td>" + numPalavras + "</td>" + 
+                    "<td>" + botaoRemover + "</td>" + 
                 "</tr>";
 
     corpoTabela.append(linha); // Adiciona a linha no HTML
 
 }
+
+$(".botao-remover").click(function(event){
+    event.preventDefault(); // Retira comportamento padrão do link, de jogar para o inicio da página.
+    $(this).parent().parent().remove();
+})
