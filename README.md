@@ -13,7 +13,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-O objetivo do projeto é desenvolvido com o objetivo de testas as principais funcionalidades da biblioteca do jQuery. 
+O objetivo do projeto desenvolvimento é testar as principais funcionalidades do jQuery, como buscar elementos, criar elementos e alterar valores. 
 
+##  💻 Exemplo página 
+![alt text](https://github.com/GUIFRE88/jquery/blob/master/capa.png)
 
 -------
