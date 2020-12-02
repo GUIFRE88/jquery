@@ -19,3 +19,10 @@
 .borda-vermelha{
     border: 3px solid red;
 }
+.placar{
+    display: none;
+}
+
+budy{
+    overflow: scroll;
+}

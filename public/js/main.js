@@ -49,7 +49,6 @@ function inicializaMarcadores(){
     })
 }
 
-
 function inicalizaCronometro(){
     var tempoRestante = $("#tempo-digitacao").text();
     campo.one("focus",function(){ // Quando estiver sobre o campo, mas apenas pega o primeiro click.
@@ -63,11 +62,13 @@ function inicalizaCronometro(){
         },1000);
     })
 }
+
 function finalizaJogo(){
     campo.attr("disabled",true); // Fecha campo quando tempo zerar, alterando atributo do campo.           
     campo.toggleClass("campo-desativado"); // Adiciona uma classe CSS ao campo, alterando assim o CSS do campo, caso a classe ja não exista. 
     inserePlacar() // Chama função para adicionar user ao placar.
 }
+
 function reiniciaJogo(){
     campo.attr("disabled",false); // Habila o campo.
     campo.val("") // Limpa o campo de texto.
@@ -79,4 +80,3 @@ function reiniciaJogo(){
     $("#tempo-digitacao").text(tempoInicial) // Volta o tempo inical.
     inicalizaCronometro(); // Inializa os cronometro.
 }
-

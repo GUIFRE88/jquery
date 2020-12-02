@@ -1,3 +1,5 @@
+$("#botao-placar").click(mostraPlacar); // Adiciona evento de click
+
 function inserePlacar(){
     var corpoTabela = $(".placar").find("tbody"); // Busca dentro da section
     var usuario = "Guilherme";
@@ -30,4 +32,8 @@ function novaLinha(usuario,numPalavras){
 function removeLinha(event){
     event.preventDefault(); // Retira comportamento padrão do link, de jogar para o inicio da página.
     $(this).parent().parent().remove();
+}
+
+function mostraPlacar(){
+    $(".placar").slideToggle(); // Altera a propriedade CSS da section placar
 }
