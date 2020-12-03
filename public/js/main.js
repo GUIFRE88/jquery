@@ -20,6 +20,13 @@ function atualizaTamanhoFrase(){
     tamanhoFrase.text(numPalavras); // Passa o valor para o elemento selecionado.    
 }
 
+function atualizaTempoInicial(tempo){
+
+    tempoInicial = tempo
+    campoTempo = $("#tempo-digitacao").text(tempo);
+
+}
+
 function inicializaContadores(){
     // Quando tiver o evento de INPUT no campo
     campo.on("input", function(){ 
@@ -50,8 +57,8 @@ function inicializaMarcadores(){
 }
 
 function inicalizaCronometro(){
-    var tempoRestante = $("#tempo-digitacao").text();
     campo.one("focus",function(){ // Quando estiver sobre o campo, mas apenas pega o primeiro click.
+        var tempoRestante = $("#tempo-digitacao").text();
         var cronometroID = setInterval(function(){
             tempoRestante--; // Retira 1 da variavel de tempo.
             $("#tempo-digitacao").text(tempoRestante); // Joga o valor para o campo.

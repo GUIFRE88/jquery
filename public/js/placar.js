@@ -9,6 +9,18 @@ function inserePlacar(){
     linha.find(".botao-remover").click(removeLinha); // Adiciona a função ao clicar no botão.
 
     corpoTabela.append(linha); // Adiciona a linha no HTML
+
+    $(".placar").slideDown(500); // Mostra o Placar automaticamente
+
+    scrollPlacar(); // Scroll do placar, joga a tela para baixo.
+
+}
+ 
+function scrollPlacar(){
+    var posicaoPlacar = $(".placar").offset().top; // Busca a posição do placar em pixel
+    $("body").animate({
+        scrollTop: posicaoPlacar+"px"
+    },500);
 }
 
 function novaLinha(usuario,numPalavras){
@@ -31,9 +43,15 @@ function novaLinha(usuario,numPalavras){
 
 function removeLinha(event){
     event.preventDefault(); // Retira comportamento padrão do link, de jogar para o inicio da página.
-    $(this).parent().parent().remove();
+    var linha = $(this).parent().parent()
+    linha.fadeOut(1000); // Remove a linha com fade, diminuindo a opacidade e não excluindo totalmente.
+    setTimeout(function(){
+        linha.remove(); // Remove realmente a linha
+    },1000)
+    
 }
 
 function mostraPlacar(){
-    $(".placar").slideToggle(); // Altera a propriedade CSS da section placar
+    // .stop() -  Para o processo e continua o outro, caso o usuário aperte várias vezes o mesmo botão.
+    $(".placar").stop().slideToggle(); // Altera a propriedade CSS da section placar
 }
